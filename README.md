@@ -59,6 +59,18 @@ Creae tests and add to worflow, but first create new secrets for tests.
 
 Optimize workflow to reduce build time is optional step. 
 
+
+        name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
+
 docker-whale
 
 Run me : docker run -p80:80 insn0w/simplewhale:latest
