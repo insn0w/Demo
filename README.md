@@ -112,7 +112,7 @@ Workflow diagram:
 
 <img src="images/pipeline.png">
 
-Finaly We did it: 
+Finally We did it: 
 
 
 
