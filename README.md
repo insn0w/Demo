@@ -56,6 +56,11 @@ Now, add the steps required:
 
    <img src="images/4.png">     
 
+
+**Create and add tests to code**
+
+   <img src="images/snyk_secret.png">  
+
 docker-whale
 
 Run me : docker run -p80:80 insn0w/simplewhale:latest
