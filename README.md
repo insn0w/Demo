@@ -5,7 +5,6 @@ Use a sample Docker project as an example to configure GitHub Actions.
 
  1. Set up the GitHub Actions workflow.
  2. Optimize your workflow to reduce build time.
- 3. Push only specific versions to Docker Hub.
  4. Set up a Docker project
  
  The Demo repository contains a Nginx alpine image. You can either clone this repository, or use your own Docker project.
@@ -107,6 +106,7 @@ Sonar
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_1 }}
    
+
 
 Workflow diagram: 
 
