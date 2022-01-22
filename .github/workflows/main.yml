@@ -57,8 +57,8 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          #command: monitor
-          command: scan
+          command: monitor
+          #command: scan
           args: --file=Demo/Dockerfile
           #args: --docker insn0w/whale-example  --file=Demo/Dockerfile --project-name=insn0w/Demo
           #args: --docker insn0w/whale-example  --file=Demo/Dockerfile
