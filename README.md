@@ -1,3 +1,5 @@
+**This a process of setting up a GitHub Action CI/CD pipeline with Docker.**
+
 This guide contains instructions on how to:
 Use a sample Docker project as an example to configure GitHub Actions.
 
@@ -5,7 +7,8 @@ Use a sample Docker project as an example to configure GitHub Actions.
  2. Optimize your workflow to reduce build time.
  3. Push only specific versions to Docker Hub.
  4. Set up a Docker project
-This guide uses a simple Docker project as an example. The Demo repository contains a Nginx alpine image. You can either clone this repository, or use your own Docker project.
+ 
+ The Demo repository contains a Nginx alpine image. You can either clone this repository, or use your own Docker project.
 
 <img src="images/1.png" wight=200>
 
@@ -30,12 +33,15 @@ In this example, let us set the push flag to true as we also want to push. We’
 To set up the workflow:
 
 Go to your repository in GitHub and then click Actions > New workflow.
-Click set up a workflow yourself and add the following content:      
+Click set up a workflow yourself and add the following content.  In this example, push against the main branch of project:      
 
    <img src="images/2.png">     
-   
+
+ Build and runs on the latest Ubuntu instances available:
+
    <img src="images/3.png"> 
    
+  
 Now, add the steps required:
 
    - The first one checks-out our repository under $GITHUB_WORKSPACE, so our workflow can access it.
@@ -44,7 +50,7 @@ Now, add the steps required:
 
    <img src="images/4.png">     
 
-Creae tests and add to worflow, but first create new secrets for tests.
+Create tests and add to worflow, but first create new secrets for tests.
 
 1. On GitHub, navigate to the main page of the repository.
 2. Under your repository name, click on the "Settings" tab.
@@ -58,6 +64,8 @@ Creae tests and add to worflow, but first create new secrets for tests.
 <img src="images/secrets.png" width="600"> 
 
 Optimize workflow to reduce build time is optional step. 
+
+Can be optimized the GitHub Actions workflow through build cache using the registry. This allows to reduce the build time as it will not have to run instructions that have not been impacted by changes in Dockerfile or source code and also reduce number of pulls we complete against Docker Hub.
 
 
         name: Build and push
@@ -101,6 +109,8 @@ Sonar
    
 
 Workflow diagram: 
+
+<img src="images/pipeline.png">
 
 Finaly We did it: 
 
