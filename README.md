@@ -9,6 +9,8 @@ Use a sample Docker project as an example to configure GitHub Actions.
 
 This guide uses a simple Docker project as an example. The Demo repository contains a Nginx alpine image. You can either clone this repository, or use your own Docker project.
 
+![](images/1.png)
+
 
 docker-whale
 
