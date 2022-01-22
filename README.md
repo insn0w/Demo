@@ -72,7 +72,8 @@ Optimize workflow to reduce build time is optional step.
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
 
 Add test to workflow: 
-Snyk     
+Snyk
+
       - uses: actions/checkout@master
         continue-on-error: true
       - name: Run Snyk to check for vulnerabilities
