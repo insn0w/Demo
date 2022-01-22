@@ -6,7 +6,9 @@ Use a sample Docker project as an example to configure GitHub Actions.
  3. Push only specific versions to Docker Hub.
  4. Set up a Docker project
 This guide uses a simple Docker project as an example. The Demo repository contains a Nginx alpine image. You can either clone this repository, or use your own Docker project.
+
 <img src="images/1.png" wight=200>
+
 Before we start, ensure you can access Docker Hub from any workflows you create. 
 To do this:
  1. Add your Docker ID as a secret to GitHub. Navigate to your GitHub repository and click Settings > Secrets > New secret.
@@ -48,9 +50,14 @@ Creae tests and add to worflow, but first create new secrets for tests.
 2. Under your repository name, click on the "Settings" tab.
 3. In the left sidebar, click Secrets.
 4. On the right bar, click on "New repository secret" 
-5. Create following secrets
+
 <img src="images/snyk_secret.png"> 
-<img scr="images/secrets.png">
+
+5. Create following secrets   
+
+<img src="images/secrets.png" width="600"> 
+
+Optimize workflow to reduce build time is optional step. 
 
 docker-whale
 
