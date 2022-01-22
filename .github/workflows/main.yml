@@ -61,7 +61,7 @@ jobs:
           #command: scan
           #args: --file=Demo/Dockerfile
           #args: --docker insn0w/whale-example  --file=Demo/Dockerfile --project-name=insn0w/Demo
-          args: --docker https://hub.docker.com/u/insn0w:insn0w/simplewhale:latest  --file=Dockerfile
+          args: --docker insn0w/simplewhale:https://hub.docker.com/u/insn0w --file=Dockerfile
   SAST:
     needs: [ unit-test ]
     name: SonarCloud
