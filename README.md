@@ -110,6 +110,4 @@ https://user-images.githubusercontent.com/92552519/150640977-1f58b20d-4341-453a-
 
 
 
-Run me : docker run -p80:80 insn0w/simplewhale:latest
 
-Build me: docker build -t insn0w/simplewhale:latest .
