@@ -59,7 +59,22 @@ Now, add the steps required:
 
 **Create and add tests to code**
 
+**Creating secrets**
+
+   1. On GitHub, navigate to the main page of the repository.
+   2. Under your repository name, click on the "Settings" tab.
+   3. In the left sidebar, click Secrets.
+   4. On the right bar, click on "New repository secret" 
+
    <img src="images/snyk_secret.png">  
+   
+   **Create following secrets**
+   
+   <img scr="images/secrets.png">
+   
+   
+   
+   
 
 docker-whale
 
