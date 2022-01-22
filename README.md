@@ -71,7 +71,37 @@ Optimize workflow to reduce build time is optional step.
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
 
-docker-whale
+Add test to workflow: 
+Snyk     
+      - uses: actions/checkout@master
+        continue-on-error: true
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          #command: scan
+          #args: --file=Demo/Dockerfile
+          #args: --docker insn0w/whale-example  --file=Demo/Dockerfile --project-name=insn0w/Demo
+          args: --docker insn0w/simplewhale:https://hub.docker.com/u/insn0w --file=Dockerfiledocker-whale
+
+Sonar
+    
+           steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_1 }}
+   
+
+Workflow diagram: 
+
+
 
 Run me : docker run -p80:80 insn0w/simplewhale:latest
 
