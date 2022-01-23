@@ -60,7 +60,7 @@ jobs:
           command: monitor
           #args: --file=Demo/Dockerfile
           args: --docker insn0w/simplewhale  --file=./Dockerfile --project-name=insn0w/Demo
-          #args: --docker insn0w/simplewhale:https://hub.docker.com/u/insn0w --file=Dockerfile
+
   SAST:
     needs: [ unit-test ]
     name: SonarCloud
