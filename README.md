@@ -1,8 +1,8 @@
-**This a process of setting up a GitHub Action CI/CD pipeline with Docker.**
+# **This a process of setting up a GitHub Action CI/CD pipeline with Docker.**
 
-This guide contains instructions on how to:
-Use a sample Docker project as an example to configure GitHub Actions.
+This guide contains instructions on how to use a Docker project and configure GitHub Actions.
 
+**Steps:**
  1. Set up the GitHub Actions workflow.
  2. Optimize your workflow to reduce build time.
  4. Set up a Docker project
@@ -34,11 +34,20 @@ To set up the workflow:
 Go to your repository in GitHub and then click Actions > New workflow.
 Click set up a workflow yourself and add the following content.  In this example, push against the main branch of project:      
 
-   <img src="images/2.png">     
+ 
+   
+    on:
+      push:
+        branches:
+          - 'main'
 
  Build and runs on the latest Ubuntu instances available:
 
-   <img src="images/3.png"> 
+ 
+   
+     jobs:
+       build:
+          runs-on: ubuntu-latest
    
   
 Now, add the steps required:
@@ -47,7 +56,31 @@ Now, add the steps required:
    - The second one will use our PAT and username to log into Docker Hub.
    - The third will setup Docker Buildx to create the builder instance using a BuildKit container under the hood.
 
-   <img src="images/4.png">     
+  <!--- and --->
+   
+   
+             steps:
+      -
+        name: Checkout 
+        uses: actions/checkout@v2
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+   
 
 Create tests and add to worflow, but first create new secrets for tests.
 
