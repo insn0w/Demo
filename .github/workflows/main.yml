@@ -112,4 +112,3 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
         
         
-
